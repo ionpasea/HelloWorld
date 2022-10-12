@@ -20,6 +20,10 @@ BLOCK-LEVEL ON ERROR UNDO, THROW.
 
 
 /* ***************************  Main Block  *************************** */
+DEFINE VARIABLE iii AS INTEGER.
+DEFINE VARIABLE ciii AS CHARACTER.
 
+define new shared temp-table ttt
+    field abc as character.
 MESSAGE "Hello World"
 VIEW-AS ALERT-BOX.
