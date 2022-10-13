@@ -16,8 +16,7 @@ jobs:
       - checkout
       - run:
             name: "Scanning by the Sonar Tool" 
-            command: 
-                bash sonar_run.sh
+            command: bash sonar_run.sh
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
