@@ -1,0 +1,9 @@
+FROM sonarqube:8.9.1-community 
+RUN echo 'HELLO WORLD'
+RUN pwd
+RUN rm -rf sonar-openedge* || true
+RUN wget https://github.com/Riverside-Software/sonar-openedge/releases/download/V2.17.0/sonar-openedge-plugin-2.17.0.jar
+RUN cp ./sonar-openedge* extensions/plugins/
+
+
+
