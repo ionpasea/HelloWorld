@@ -2,7 +2,7 @@
 cd HelloWorld
 docker-compose -f docker-compose-sonar.yml build
 docker-compose -f docker-compose-sonar.yml up -d
-sudo apt-get install jq -y
+# sudo apt-get install jq -y
 PROJECTKEY="sonarbackend"
 Check=`curl -s -u admin:admin123 http://142.126.144.195:9000/api/qualitygates /project_status?projectKey=$PROJECTKEY | jq '.projectStatus.status' | tr - d '"'`
 max_retry=30
