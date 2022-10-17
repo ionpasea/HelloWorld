@@ -7,7 +7,7 @@ orbs:
 parameters:
   organization:
     type: env_var_name
-    default: SONARQUBE_SERVER_ORGANIZATION
+    default: ""
 
   
  
