@@ -12,8 +12,8 @@ jobs:
     executor: scanner
     steps:
       - checkout
-      - setup-environment
-      - install-engine
+      - sonarqube/setup-environment
+      - sonarqube/install-engine
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
