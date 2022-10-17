@@ -26,8 +26,7 @@ parameters:
 workflows:
   say-hello-workflow:
     jobs:
-      - sonarqube/analyze
-        parameters:
+      - sonarqube/analyze:
             - organization: "Rocas Inc."
             - host_url: "http://rocasinc.com:9000"
             - login: "squ_99b453521d8104875d4e478ec486a7e14a44daa4"
