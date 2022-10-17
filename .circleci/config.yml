@@ -8,6 +8,9 @@ parameters:
   organization:
     type: string
     default: "Rocas Inc."
+  host_url:
+    type: string
+    default: "http://rocasinc.com:9000"
 
     
 # Define a job to be invoked later in a workflow.
