@@ -23,6 +23,8 @@ jobs:
             command: 
                 echo 'export organization="Rocas Inc."' >> "$BASH_ENV"
                 echo 'export host_url="http://rocasinc.com:9000"' >> "$BASH_ENV"
+                echo 'export login="squ_99b453521d8104875d4e478ec486a7e14a44daa4"' >> "$BASH_ENV"
+                echo 'export projectKey="my:project"' >> "$BASH_ENV"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -30,4 +32,5 @@ workflows:
   say-hello-workflow:
     jobs:      
       - say-hello
+      - sonarqube/analyze
 
