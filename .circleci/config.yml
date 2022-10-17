@@ -12,7 +12,7 @@ orbs:
 workflows:
   say-hello-workflow:
     jobs:      
-      - sonarqube/analyze
+      - sonarqube/analyze:
         environment:
           - organization: 'Rocas Inc.'
           - host_url: 'http://rocasinc.com:9000'
