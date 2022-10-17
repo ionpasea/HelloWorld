@@ -20,8 +20,7 @@ jobs:
       - checkout
       - run:
             name: "Scanning by the Sonar Tool" 
-            command: bash HelloWorld/sonar_run.sh
-            command: echo 'export organization="Rocas Inc"'
+            command: export organization="Rocas Inc."
          
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
