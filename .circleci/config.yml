@@ -11,7 +11,7 @@ jobs:
   say-hello:
     executor: sonarqube/scanner
     steps:
-      - sonarqube/checkout
+      - checkout
       - sonarqube/setup-environment
       - sonarqube/install-engine
 
