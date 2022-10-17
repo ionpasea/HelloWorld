@@ -3,6 +3,33 @@
 version: 2.1
 orbs:
   sonarqube: clicklogiq/sonarqube@1.0.1
+  
+parameters:
+  organization:
+    type: env_var_name
+    default: SONARQUBE_SERVER_ORGANIZATION
+  host_url:
+    type: env_var_name
+    default: SONARQUBE_SERVER_URL
+  login:
+    type: env_var_name
+    default: SONARQUBE_SERVER_LOGIN
+  projectKey:
+    type: env_var_name
+    default: CIRCLE_PROJECT_REPONAME
+  projectVersion:
+    type: env_var_name
+    default: CIRCLE_BUILD_NUM
+  github_oauth:
+    type: env_var_name
+    default: SONARQUBE_GITHUB_OAUTH
+  github_repository:
+    type: env_var_name
+    default: SONARQUBE_SERVER_ORGANIZATION
+  github_pullRequest:
+    type: env_var_name
+    default: CIRCLECI_PULL_REQUEST_NUMBER  
+  
  
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -13,30 +40,6 @@ workflows:
   say-hello-workflow:
     jobs:
       - sonarqube/analyze
-            parameters:
-              organization:
-                type: env_var_name
-                default: SONARQUBE_SERVER_ORGANIZATION
-              host_url:
-                type: env_var_name
-                default: SONARQUBE_SERVER_URL
-              login:
-                type: env_var_name
-                default: SONARQUBE_SERVER_LOGIN
-              projectKey:
-                type: env_var_name
-                default: CIRCLE_PROJECT_REPONAME
-              projectVersion:
-                type: env_var_name
-                default: CIRCLE_BUILD_NUM
-              github_oauth:
-                type: env_var_name
-                default: SONARQUBE_GITHUB_OAUTH
-              github_repository:
-                type: env_var_name
-                default: SONARQUBE_SERVER_ORGANIZATION
-              github_pullRequest:
-                type: env_var_name
-                default: CIRCLECI_PULL_REQUEST_NUMBER
+
 
 
