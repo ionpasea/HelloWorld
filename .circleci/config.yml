@@ -13,30 +13,30 @@ workflows:
   say-hello-workflow:
     jobs:
       - sonarqube/analyze
-        parameters:
-          organization:
-            type: env_var_name
-            default: SONARQUBE_SERVER_ORGANIZATION
-          host_url:
-            type: env_var_name
-            default: SONARQUBE_SERVER_URL
-          login:
-            type: env_var_name
-            default: SONARQUBE_SERVER_LOGIN
-          projectKey:
-            type: env_var_name
-            default: CIRCLE_PROJECT_REPONAME
-          projectVersion:
-            type: env_var_name
-            default: CIRCLE_BUILD_NUM
-          github_oauth:
-            type: env_var_name
-            default: SONARQUBE_GITHUB_OAUTH
-          github_repository:
-            type: env_var_name
-            default: SONARQUBE_SERVER_ORGANIZATION
-          github_pullRequest:
-            type: env_var_name
-            default: CIRCLECI_PULL_REQUEST_NUMBER
+            parameters:
+              organization:
+                type: env_var_name
+                default: SONARQUBE_SERVER_ORGANIZATION
+              host_url:
+                type: env_var_name
+                default: SONARQUBE_SERVER_URL
+              login:
+                type: env_var_name
+                default: SONARQUBE_SERVER_LOGIN
+              projectKey:
+                type: env_var_name
+                default: CIRCLE_PROJECT_REPONAME
+              projectVersion:
+                type: env_var_name
+                default: CIRCLE_BUILD_NUM
+              github_oauth:
+                type: env_var_name
+                default: SONARQUBE_GITHUB_OAUTH
+              github_repository:
+                type: env_var_name
+                default: SONARQUBE_SERVER_ORGANIZATION
+              github_pullRequest:
+                type: env_var_name
+                default: CIRCLECI_PULL_REQUEST_NUMBER
 
 
