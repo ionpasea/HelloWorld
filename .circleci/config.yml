@@ -11,8 +11,13 @@ parameters:
   host_url:
     type: string
     default: "http://rocasinc.com:9000"
-
-
+  login:
+    type: string
+    default: "squ_99b453521d8104875d4e478ec486a7e14a44daa4"
+  projectKey:
+    type: string
+    default: "my:project"
+    
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 
