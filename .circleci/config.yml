@@ -6,7 +6,7 @@ orbs:
   
 parameters:
   organization:
-    type: env_var_name
+    type: string
     default: ""
 
   
