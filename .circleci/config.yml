@@ -9,9 +9,9 @@ orbs:
 jobs:
 
   say-hello:
-    executor: scanner
+    executor: sonarqube/scanner
     steps:
-      - checkout
+      - sonarqube/checkout
       - sonarqube/setup-environment
       - sonarqube/install-engine
 
