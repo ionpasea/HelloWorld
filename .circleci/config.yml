@@ -3,23 +3,29 @@
 version: 2.1
 orbs:
   sonarqube: clicklogiq/sonarqube@1.0.1
-  
-jobs:
-  say-hello:
-    steps:
-      - run:
-        name: "Setup custom environment variables"
-        command: echo 'export organization="Rocas Inc."' >> "$BASH_ENV"
-        command: echo 'export host_url="http://rocasinc.com:9000"' >> "$BASH_ENV"
-        command: echo 'export login="squ_99b453521d8104875d4e478ec486a7e14a44daa4"' >> "$BASH_ENV"
-        command: echo 'export projectKey="my:project"' >> "$BASH_ENV"
-# Invoke jobs via workflows    
+ 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
-
+jobs:
+  say-hello:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+    docker:
+      - image: cimg/base:stable
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    steps:
+      - setup_remote_docker:
+          version: 20.10.14
+      - checkout
+      - run:
+            name: "Scanning by the Sonar Tool" 
+            command: bash HelloWorld/sonar_run.sh
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
     jobs:
-      - sonarqube/analyze
+      - say-hello
+
+
