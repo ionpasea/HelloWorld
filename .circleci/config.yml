@@ -13,8 +13,6 @@ orbs:
 jobs:
   say-hello:
     steps:
-      - setup_remote_docker:
-          version: 20.10.14
       - run:
         name: "Setup custom environment variables"
         command: echo 'export organization="Rocas Inc."' >> "$BASH_ENV"
