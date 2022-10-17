@@ -18,6 +18,16 @@ parameters:
     type: string
     default: "my:project"
     
+jobs:
+  say-hello:
+    steps:
+      - run:
+          name: "Setup custom environment variables"
+          command: echo 'export organization="Rocas Inc."' >> "$BASH_ENV"
+          command: echo 'export host_url="http://rocasinc.com:9000"' >> "$BASH_ENV"
+          command: echo 'export login="squ_99b453521d8104875d4e478ec486a7e14a44daa4"' >> "$BASH_ENV"
+          command: echo 'export projectKey="my:project"' >> "$BASH_ENV"
+# Invoke jobs via workflows    
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 
@@ -26,7 +36,8 @@ parameters:
 workflows:
   say-hello-workflow:
     jobs:
-      - sonarqube/analyze -D"sonar.projectKey=my:project" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.login=squ_99b453521d8104875d4e478ec486a7e14a44daa4"
+      - say-hello  
+      - sonarqube/analyze
 
                 
 
