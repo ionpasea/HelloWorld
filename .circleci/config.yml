@@ -9,15 +9,22 @@ orbs:
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+
+jobs:
+  say-hello:
+    steps:
+      - setup_remote_docker:
+          version: 20.10.14
+      - run:
+        name: "Setup custom environment variables"
+        command: echo 'export organization="Rocas Inc."' >> "$BASH_ENV"
+        command: echo 'export host_url="http://rocasinc.com:9000"' >> "$BASH_ENV"
+        command: echo 'export login="squ_99b453521d8104875d4e478ec486a7e14a44daa4"' >> "$BASH_ENV"
+        command: echo 'export projectKey="my:project"' >> "$BASH_ENV"
+
 workflows:
   say-hello-workflow:
     jobs:      
-      - sonarqube/analyze:
-        - run:
-            name: "Setup custom environment variables"
-            command: echo 'export organization="Rocas Inc."' >> "$BASH_ENV"
-            command: echo 'export host_url="http://rocasinc.com:9000"' >> "$BASH_ENV"
-            command: echo 'export login="squ_99b453521d8104875d4e478ec486a7e14a44daa4"' >> "$BASH_ENV"
-            command: echo 'export projectKey="my:project"' >> "$BASH_ENV"
+      - sonarqube/analyze
 
 
