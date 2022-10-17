@@ -13,8 +13,11 @@ workflows:
   say-hello-workflow:
     jobs:      
       - sonarqube/analyze:
-          SONARQUBE_SERVER_ORGANIZATION: 'Rocas Inc.'
-          SONARQUBE_SERVER_URL: 'http://rocasinc.com:9000'
-          SONARQUBE_SERVER_LOGIN: 'squ_99b453521d8104875d4e478ec486a7e14a44daa4'
-          CIRCLE_PROJECT_REPONAME: 'my:project'
+        - run:
+            name: "Setup custom environment variables"
+            command: echo 'export organization="Rocas Inc."' >> "$BASH_ENV"
+            command: echo 'export host_url="http://rocasinc.com:9000"' >> "$BASH_ENV"
+            command: echo 'export login="squ_99b453521d8104875d4e478ec486a7e14a44daa4"' >> "$BASH_ENV"
+            command: echo 'export projectKey="my:project"' >> "$BASH_ENV"
+
 
