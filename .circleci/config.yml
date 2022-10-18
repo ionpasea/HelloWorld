@@ -14,6 +14,10 @@ commands:
             description: "Authentication key (sonar.login paramter) to access SonarQube and perform analysis"
             type: string
             default: "$SONAR_TOKEN"
+        sonar_projectKey:
+            description: "Sonar Project Key"
+            type: string
+            default: "$SONAR_PROJECYKEY"            
         sonar_sources:
             description: "Where the files are located?"
             type: string
@@ -31,6 +35,7 @@ commands:
             export SONAR_SCANNER_OPTS="-Xmx2048m"
             eval ./sonar-scanner-4.2.0.1873/bin/sonar-scanner -Dsonar.host.url=<< parameters.sonar_server_url >> \
             -Dsonar.sources=<< parameters.sonar_sources >> \
+            -Dsonar.sources=<< parameters.sonar_projectKey >> \
             -Dsonar.login=<< parameters.sonar_login >>
  
 # Define a job to be invoked later in a workflow.
@@ -47,7 +52,11 @@ jobs:
       - setup_remote_docker:
           version: 20.10.14
       - checkout
-
+      - check-code-quality:
+            sonar_server_url: 'http://rocasinc.com:9000'
+            sonar_login: 'squ_99b453521d8104875d4e478ec486a7e14a44daa4'
+            sonar_projectKey: 'my:project'
+            sonar_sources: './HelloWorld'
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
