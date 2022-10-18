@@ -1,8 +1,37 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine.
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-orbs:
-  sonarscanner: psl/sonarscanner@0.0.4
+
+commands:
+  check-code-quality:
+    description: Check Code Quality
+    parameters:
+        sonar_server_url:
+            type: string
+            description: "URL of your SonarQube server. e.g.: http://my.sonarqube,server:9000"
+            default: "$SONAR_SERVER"
+        sonar_login:
+            description: "Authentication key (sonar.login paramter) to access SonarQube and perform analysis"
+            type: string
+            default: "$SONAR_TOKEN"
+        sonar_sources:
+            description: "Where the files are located?"
+            type: string
+            default: "$SONAR_SOURCES"
+    steps:
+    - run:
+        name: Install Sonarqube scanner
+        command: |
+            wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873.zip
+            unzip sonar-scanner-cli-4.2.0.1873.zip
+
+    - run:
+        name: Run Sonarscanner
+        command: |
+            export SONAR_SCANNER_OPTS="-Xmx2048m"
+            eval ./sonar-scanner-4.2.0.1873/bin/sonar-scanner -Dsonar.host.url=<< parameters.sonar_server_url >> \
+            -Dsonar.sources=<< parameters.sonar_sources >> \
+            -Dsonar.login=<< parameters.sonar_login >>
  
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -18,10 +47,7 @@ jobs:
       - setup_remote_docker:
           version: 20.10.14
       - checkout
-      - sonarscanner/check-code-quality:
-            sonar_server_url: 'http://rocasinc.com:9000'
-            sonar_login: 'squ_99b453521d8104875d4e478ec486a7e14a44daa4'
-            sonar_sources: './HelloWorld'
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
