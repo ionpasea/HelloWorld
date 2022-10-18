@@ -20,7 +20,7 @@ BLOCK-LEVEL ON ERROR UNDO, THROW.
 
 
 /* ***************************  Main Block  *************************** */
-DEFINE VARIABLE iii AS INTEGER.
+DEFINE VARIABLE iii AS INTEGERR.
 DEFINE VARIABLE ciii AS CHARACTER.
 DEF VAR xx AS CHAR NO-UNDO.
 
