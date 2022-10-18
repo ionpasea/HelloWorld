@@ -20,8 +20,9 @@ BLOCK-LEVEL ON ERROR UNDO, THROW.
 
 
 /* ***************************  Main Block  *************************** */
-DEFINE VARIABLE iii AS INTEGERR.
+DEFINE VARIABLE iii AS INTEGER.
 DEFINE VARIABLE ciii AS CHARACTER.
+DEF VAR xx AS CHAR NO-UNDO.
 DEF VAR xx AS CHAR NO-UNDO.
 
 define new shared temp-table ttt
