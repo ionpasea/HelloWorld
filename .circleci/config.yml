@@ -37,6 +37,7 @@ commands:
             -Dsonar.sources=<< parameters.sonar_sources >> \
             -Dsonar.projectKey=<< parameters.sonar_projectKey >> \
             -Dsonar.login=<< parameters.sonar_login >>
+            curl -u squ_99b453521d8104875d4e478ec486a7e14a44daa4: "http://localhost:9000/api/measures/component?metricKeys=ncloc,complexity,violations&component=HelloWorld"
  
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -57,6 +58,7 @@ jobs:
             sonar_login: 'squ_99b453521d8104875d4e478ec486a7e14a44daa4'
             sonar_projectKey: 'HelloWorld'
             sonar_sources: './HelloWorld'
+        
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
