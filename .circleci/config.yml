@@ -37,8 +37,8 @@ commands:
             -Dsonar.sources=<< parameters.sonar_sources >> \
             -Dsonar.projectKey=<< parameters.sonar_projectKey >> \
             -Dsonar.login=<< parameters.sonar_login >>
-            bug = $(curl -sX GET -u squ_99b453521d8104875d4e478ec486a7e14a44daa4: "http://rocasinc.com:9000/api/measures/component?metricKeys=ncloc,complexity,violations&component=HelloWorld")
-            echo "$bug"
+            echo 'bug = $(curl -sX GET -u squ_99b453521d8104875d4e478ec486a7e14a44daa4: "http://rocasinc.com:9000/api/measures/component?metricKeys=ncloc,complexity,violations&component=HelloWorld")' >> "$BASH_ENV"
+            echo ${bug}
  
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
