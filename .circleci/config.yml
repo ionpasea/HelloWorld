@@ -35,7 +35,7 @@ commands:
             export SONAR_SCANNER_OPTS="-Xmx2048m"
             eval ./sonar-scanner-4.2.0.1873/bin/sonar-scanner -Dsonar.host.url=<< parameters.sonar_server_url >> \
             -Dsonar.sources=<< parameters.sonar_sources >> \
-            -Dsonar.sources=<< parameters.sonar_projectKey >> \
+            -Dsonar.projectKey=<< parameters.sonar_projectKey >> \
             -Dsonar.login=<< parameters.sonar_login >>
  
 # Define a job to be invoked later in a workflow.
