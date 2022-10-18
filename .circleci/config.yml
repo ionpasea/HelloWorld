@@ -18,13 +18,10 @@ jobs:
       - setup_remote_docker:
           version: 20.10.14
       - checkout
-      - run:
-            name: "java version" 
-            command: "java -version"
-#      - sonarscanner/check-code-quality:
-#            sonar_server_url: 'http://rocasinc.com:9000'
-#            sonar_login: 'squ_99b453521d8104875d4e478ec486a7e14a44daa4'
-#            sonar_sources: './HelloWorld'
+      - sonarscanner/check-code-quality:
+            sonar_server_url: 'http://rocasinc.com:9000'
+            sonar_login: 'squ_99b453521d8104875d4e478ec486a7e14a44daa4'
+            sonar_sources: './HelloWorld'
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
