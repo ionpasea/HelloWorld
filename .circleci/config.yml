@@ -19,7 +19,8 @@ jobs:
           version: 20.10.14
       - checkout
       - run:
-            name: "java -version" 
+            name: "java version" 
+            command: "java -version"
 #      - sonarscanner/check-code-quality:
 #            sonar_server_url: 'http://rocasinc.com:9000'
 #            sonar_login: 'squ_99b453521d8104875d4e478ec486a7e14a44daa4'
