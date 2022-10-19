@@ -39,6 +39,7 @@ commands:
             -Dsonar.login=<< parameters.sonar_login >>
             curl -sX GET -u squ_99b453521d8104875d4e478ec486a7e14a44daa4: "http://rocasinc.com:9000/api/measures/component?metricKeys=ncloc,complexity,violations&component=HelloWorld"
             bash vul = "Hello World"
+            bash echo $vul
 #           exit 1
 #           bash vul = $(curl -sX GET -u squ_99b453521d8104875d4e478ec486a7e14a44daa4: "http://rocasinc.com:9000/api/measures/component?metricKeys=ncloc,complexity,violations&component=HelloWorld")
 #           bash echo vul
