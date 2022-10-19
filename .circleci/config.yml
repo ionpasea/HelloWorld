@@ -38,10 +38,8 @@ commands:
             -Dsonar.projectKey=<< parameters.sonar_projectKey >> \
             -Dsonar.login=<< parameters.sonar_login >>
             curl -sX GET -u squ_99b453521d8104875d4e478ec486a7e14a44daa4: "http://rocasinc.com:9000/api/measures/component?metricKeys=ncloc,complexity,violations&component=HelloWorld"
-            echo 'export vul="==============Vunerabilities"' "$BASH_ENV"
-            echo ${vul}
 #           exit 1
-#            echo 'bug = $(curl -sX GET -u squ_99b453521d8104875d4e478ec486a7e14a44daa4: "http://rocasinc.com:9000/api/measures/component?metricKeys=ncloc,complexity,violations&component=HelloWorld")' >> "$BASH_ENV"
+            bash vul = $(curl -sX GET -u squ_99b453521d8104875d4e478ec486a7e14a44daa4: "http://rocasinc.com:9000/api/measures/component?metricKeys=ncloc,complexity,violations&component=HelloWorld")
 #            echo ${bug}
  
 # Define a job to be invoked later in a workflow.
