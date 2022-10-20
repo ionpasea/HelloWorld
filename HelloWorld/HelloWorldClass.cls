@@ -15,4 +15,8 @@ BLOCK-LEVEL ON ERROR UNDO, THROW.
 
 CLASS HelloWorldClass: 
 
+method public integer calculateSum(i1 as integer, i2 as integer):
+    return i1 + i2.
+end.
+
 END CLASS.
