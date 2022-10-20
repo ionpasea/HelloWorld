@@ -43,7 +43,7 @@ commands:
             vul=$(curl -sX GET -u squ_99b453521d8104875d4e478ec486a7e14a44daa4: ${url})
             no_vul=$(echo $vul | jq -r .component.measures | jq -r .[1].value)
             echo $no_vul
-            if [ "$no_vul" != "0" ]; then
+            if [ "$no_vul" == "0" ]; then
                 exit 1
             fi
 #           
