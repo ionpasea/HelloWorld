@@ -44,7 +44,7 @@ commands:
             no_vul=$(echo ${vul} | jq -r .component.measures | jq -r .[0].value)
             
             if [ "${no_vul}" != "0" ]; then
-                echo "SonarQube problems: There are ${no_vul} vioaltions"
+                echo "SonarQube problems: There are ${no_vul} violations"
                 exit 1
             fi
 #           
