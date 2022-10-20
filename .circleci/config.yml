@@ -38,12 +38,10 @@ commands:
             -Dsonar.projectKey=<< parameters.sonar_projectKey >> \
             -Dsonar.login=<< parameters.sonar_login >>
 #            curl -sX GET -u squ_99b453521d8104875d4e478ec486a7e14a44daa4: "http://rocasinc.com:9000/api/measures/component?metricKeys=ncloc,complexity,violations&component=HelloWorld"
-#            vul="Hello World"
+             vul="Hello World"
 #            echo $vul
 #           exit 1
-            vul="test"
-#            echo $vul
- 
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
