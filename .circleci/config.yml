@@ -41,7 +41,7 @@ commands:
 #            vul="Hello World"
 #            echo $vul
 #           exit 1
-            bash vul="test"
+            vul="test"
 #            echo $vul
  
 # Define a job to be invoked later in a workflow.
