@@ -42,11 +42,11 @@ commands:
             url="http://rocasinc.com:9000/api/measures/component?metricKeys=ncloc,complexity,violations&component=HelloWorld"            
             vul=$(curl -sX GET -u squ_99b453521d8104875d4e478ec486a7e14a44daa4: ${url})
             no_vul=$(echo $vul | jq -r .component.measures | jq -r .[1].value)
-            echo "======================"
             echo $no_vul
-            echo "======================"
-            
-#           exit 1
+            if [ "$no_vul" != "0" ]; then
+                exit 1
+            fi
+#           
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
