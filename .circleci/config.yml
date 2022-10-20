@@ -40,13 +40,13 @@ commands:
             -Dsonar.projectKey=<< parameters.sonar_projectKey >> \
             -Dsonar.login=<< parameters.sonar_login >>
             echo "=====after sonar scanner ========="
-            url="http://rocasinc.com:9000/api/measures/component?metricKeys=ncloc,complexity,violations&component=HelloWorld"            
+            url="http://rocasinc.com:9000/api/measures/component?metricKeys=violations&component=HelloWorld"            
             echo "=====after url variable was set ========="
             echo ${url}
             vul=$(curl -sX GET -u squ_99b453521d8104875d4e478ec486a7e14a44daa4: ${url})
             echo "=====after vul variable was set ========="
             echo ${vul}            
-            no_vul=$(echo ${vul} | jq -r .component.measures | jq -r .[1].value)
+            no_vul=$(echo ${vul} | jq -r .component.measures | jq -r .[0].value)
             echo "=====after no_vul variable was set ========="
             echo ${no_vul}            
             
